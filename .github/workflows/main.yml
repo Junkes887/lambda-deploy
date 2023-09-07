@@ -11,15 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Set up Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.16
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.16
       - name: Build
-      working-directory: ./lambda/lambda-deploy
-      run: go build -v main.go
+        working-directory: ./lambda/lambda-deploy
+        run: go build -v main.go
       - name: Zip
-      working-directory: ./lambda/lambda-deploy
-      run: zip -j deploy.zip main
+        working-directory: ./lambda/lambda-deploy
+        run: zip -j deploy.zip main
       
