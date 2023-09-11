@@ -28,8 +28,10 @@ jobs:
         run: zip -j deploy.zip main
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1.7.0
+        env:
+          aws_role: ${{ secrets.AWS_ROLE }}
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE }}
+          role-to-assume: aws_role
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: us-east-2
       - name: Upload Zip
