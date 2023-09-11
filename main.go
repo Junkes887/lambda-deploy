@@ -9,10 +9,10 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func handler(ctx context.Context, request events.APIGatewayProxyRequest) error {
-	log.Println("HelloWorld from Golang Lambda")
+func handler(ctx context.Context, request events.APIGatewayProxyRequest) (string, error) {
+	log.Println("Hello World from Golang Lambda")
 
-	return nil
+	return "funcionou", nil
 }
 
 func main() {
