@@ -29,8 +29,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE }}
-          role-session-name: GitHubAction-AssumeRoleWithAction
+          role-to-assume: arn:aws:iam::833528644219:role/GitHubActions-Role
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
           aws-region: us-east-2
       - name: Upload Zip
         run: aws lambda update-function-code --function-name lambda-deploy --zip-file fileb://deploy.zip
